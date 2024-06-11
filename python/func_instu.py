@@ -10,7 +10,6 @@ def randomxor(reg):
         op_liste = [
             '\\x48\\x31\\xc0', # xor rax, rax
             '\\x48\\x29\\xc0', # sub rax, rax
-            '\\x48\\x21\\xc0', # and rax, rax
             '\\x48\\x31\\xc0\\x48\\x6b\\xc0\\x00', # imul rax, rax
             '\\xb8\\x01\\x00\\x00\\x00\\x48\\x29\\xc0', # mov rax, 1 - sub rax, rax
             '\\xb8\\x01\\x00\\x00\\x00\\x48\\x21\\xc0', # mov rax, 1 - and rax, rax
