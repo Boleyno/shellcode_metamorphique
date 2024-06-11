@@ -5,10 +5,10 @@ def aleatoire_xor(reg_rax) :
     op_liste = [
         f'\\x48\\x31\\{reg_rax}', # xor rax, rax
         f'\\x48\\x29\\{reg_rax}', # sub rax, rax
-        f'\\x48\\x31\\{reg_rax}\\x48\\x6b\\{reg_rax}\\x00', # xor rax, rax - imul rax, rax
-        f'\\xb8\\x01\\x00\\x00\\x00\\x48\\x29\\{reg_rax}', # mov rax, 1 - sub rax, rax
-        f'\\xb8\\x01\\x00\\x00\\x00\\x48\\x21\\{reg_rax}', # mov rax, 1 - and rax, rax
-        f'\\xb8\\x01\\x00\\x00\\x00\\x48\\x31\\{reg_rax}' # mov rax, 1 - xor rax, rax
+        #f'\\x48\\x31\\{reg_rax}\\x48\\x6b\\{reg_rax}\\x00', # xor rax, rax - imul rax, rax
+        #f'\\xb8\\x01\\x00\\x00\\x00\\x48\\x29\\{reg_rax}', # mov rax, 1 - sub rax, rax
+        #f'\\xb8\\x01\\x00\\x00\\x00\\x48\\x21\\{reg_rax}', # mov rax, 1 - and rax, rax
+        #f'\\xb8\\x01\\x00\\x00\\x00\\x48\\x31\\{reg_rax}' # mov rax, 1 - xor rax, rax
     ]
 
     x = random.randint(0, len(op_liste) - 1)
@@ -62,8 +62,8 @@ def movxl(reg, num):
 
         liste_choix = [
             f'\\{op1}\\{format_num_hex}', # mov al, num
-            f'\\x30\\xc0\\{op2}\\{format_num_hex}', # xor al, al - add al , num
-            f'\\xfe\\xc0\\{op2}\\{format_pour_inc}' # inc al - add al , num-1
+            #f'\\x30\\xc0\\{op2}\\{format_num_hex}', # xor al, al - add al , num
+            #f'\\xfe\\xc0\\{op2}\\{format_pour_inc}' # inc al - add al , num-1
         ]
 
         choix = random.choice(liste_choix)

@@ -12,18 +12,15 @@ def partie0():
         'rsi'
     ]
 
-    # choix d'un chiffre aléatoire
-    x = random.randint(0, 5)
     
     # pour que le shellcode soit fonctionnel il faut commencer par xor rax, rax ou équivalent :
     resultat = [randomxor('rax')]
 
-    if x > 0:
-        choix = random.sample(range(len(reg)), min(x, len(reg)))
-        for index in choix:
-            resultat.append(randomxor(reg[index]))
+    for index in reg:
+        resultat.append(randomxor(index))
     
     # Concatenation
     resultat_concat = ''.join(resultat)
+    print("Partie 0 = ", resultat_concat)
 
     return resultat_concat  
