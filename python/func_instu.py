@@ -1,40 +1,50 @@
 #!/usr/bin/env python3
 import random
 
+def aleatoire_xor(reg_rax) :
+    op_liste = [
+        f'\\x48\\x31\\{reg_rax}', # xor rax, rax
+        f'\\x48\\x29\\{reg_rax}', # sub rax, rax
+        f'\\x48\\x31\\{reg_rax}\\x48\\x6b\\{reg_rax}\\x00', # xor rax, rax - imul rax, rax
+        f'\\xb8\\x01\\x00\\x00\\x00\\x48\\x29\\{reg_rax}', # mov rax, 1 - sub rax, rax
+        f'\\xb8\\x01\\x00\\x00\\x00\\x48\\x21\\{reg_rax}', # mov rax, 1 - and rax, rax
+        f'\\xb8\\x01\\x00\\x00\\x00\\x48\\x31\\{reg_rax}' # mov rax, 1 - xor rax, rax
+    ]
+
+    x = random.randint(0, len(op_liste) - 1)
+    op = op_liste[x]
+    print(f'OP rax = {op}')
+
+    return op
+
 def randomxor(reg):
     
     if reg == 'al':
         op = '\\x30\\xc0'
 
     elif reg == 'rax':
-        op_liste = [
-            '\\x48\\x31\\xc0', # xor rax, rax
-            '\\x48\\x29\\xc0', # sub rax, rax
-            '\\x48\\x31\\xc0\\x48\\x6b\\xc0\\x00', # imul rax, rax
-            '\\xb8\\x01\\x00\\x00\\x00\\x48\\x29\\xc0', # mov rax, 1 - sub rax, rax
-            '\\xb8\\x01\\x00\\x00\\x00\\x48\\x21\\xc0', # mov rax, 1 - and rax, rax
-            '\\xb8\\x01\\x00\\x00\\x00\\x48\\x31\\xc0' # mov rax, 1 - xor rax, rax
-        ]
-
-        x = random.randint(0, len(op_liste) - 1)
-        op = op_liste[x]
-        print(f'OP = {op}')
+        reg_rax = 'xc0'
+        op = aleatoire_xor(reg_rax)
 
     elif reg == 'rbx':
-        op = '\\x48\\x31\\xdb' # xor rbx, rbx
+        reg_rbx = 'xdb'
+        op = aleatoire_xor(reg_rbx)
 
     elif reg == 'rcx':
-        op = '\\x48\\x31\\xc9' # xor rcx, rcx
+        reg_rcx = 'xc9'
+        op = aleatoire_xor(reg_rcx)
     
     elif reg == 'rdx':
-        op = '\\x48\\x31\\xd2' # xor rdx, rdx
+        reg_rdx = 'xd2'
+        op = aleatoire_xor(reg_rdx)
     
     elif reg == 'rdi':
-        op = '\\x48\\x31\\xff' # xor rdi, rdi
+        reg_rdx = 'xff'
+        op = aleatoire_xor(reg_rdx)
 
     elif reg == 'rsi':
-        op = '\\x48\\x31\\xf6' # xor rsi, rsi
-
+        reg_rdx = 'xf6'
+        op = aleatoire_xor(reg_rdx)
 
     return op
 
