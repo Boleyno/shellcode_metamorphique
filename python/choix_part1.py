@@ -7,10 +7,10 @@ def partie1():
     # PARTIE : SOCKET
 
     
-    moval = '\\xb0\\x29' # mov al, 41 
-    movdil = '\\x40\\xb7\\x02' # mov dil, 2
-    movsil = '\\x40\\xb6\\x01' # mov sil, 1
-    movdl = '\\xb2\\x06' # mov dl, 6
+    moval = movxl("al",41) # mov al, 41
+    movdil = movxl("dil",2) # mov dil, 2
+    movsil = movxl("sil",1) # mov sil, 1
+    movdl = movxl("dl",6) # mov dl, 6
     syscall = '\\x0f\\x05' # syscalls
 
 
@@ -25,10 +25,14 @@ def partie1():
         choix = part1[0]
     elif x == 1 :
         choix = part1[1]
+
+
+
     
+    print(f"OP 1 = {choix}")
     resultat = moval + movdil + movsil + movdl + syscall + choix
 
-    print(resultat)
+    print(f"Partie 1 = {resultat}")
     print("")
 
     return resultat    
