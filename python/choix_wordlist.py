@@ -8,8 +8,13 @@ from choix_part5 import partie5
 from choix_part6 import partie6
 
 
-port = 'x11\\x5c'
-ip = 'x7f\\x01\\x01\\x01'
+#port = 'x11\\x5c'
+#ip = 'x7f\\x01\\x01\\x01'
+
+def count_hexadecimal_bytes(hex_string):
+    # Compter le nombre de séquences \x dans la chaîne
+    count = hex_string.count('\\x')
+    return count
 
 def choix(port, ip):
 
@@ -24,5 +29,10 @@ def choix(port, ip):
     # Concatenation des résultats
     concatenated_result = result_part0 + result_part1 + result_part2 + result_part3 + result_part4 + result_part5 + result_part6
 
+    print("")
+    print("")
     print(concatenated_result)
 
+    # Compter et afficher le nombre d'hexadécimaux
+    num_hex = count_hexadecimal_bytes(concatenated_result)
+    print(f"Le nombre d'hexadécimaux dans la chaîne est : {num_hex}")
