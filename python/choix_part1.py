@@ -26,8 +26,6 @@ def partie1():
     elif x == 1 :
         choix = part1[1]
 
-
-
     
     print(f"OP 1 = {choix}")
     resultat = moval + movdil + movsil + movdl + syscall + choix

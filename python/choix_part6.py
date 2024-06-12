@@ -22,7 +22,7 @@ def partie6():
     
     """
 
-    print("Partie 6 : ",part6)
-    print(" ")
+    #print("Partie 6 : ",part6)
+    #print(" ")
 
     return part6

