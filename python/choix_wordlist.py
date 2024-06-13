@@ -24,7 +24,7 @@ def choix(port, ip):
     result_part3 = partie3()  
     result_part4 = partie4()
     result_part5 = partie5() 
-    result_part6 = partie6()[0]  
+    result_part6 = partie6()  
 
     # Concatenation des résultats
     concatenated_result = result_part0 + result_part1 + result_part2 + result_part3 + result_part4 + result_part5 + result_part6
