@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import random
-from func_instu import *
+from func_instru import *
 
 def partie3():
 
