@@ -5,10 +5,6 @@ def aleatoire_xor(reg) :
     op_liste = [
         f'\\x48\\x31\\{reg}', # xor rax, rax
         f'\\x48\\x29\\{reg}', # sub rax, rax
-        #f'\\x48\\x31\\{reg}\\x48\\x6b\\{reg}\\x00', # xor rax, rax - imul rax, rax
-        #f'\\xb8\\x01\\x00\\x00\\x00\\x48\\x29\\{reg}', # mov rax, 1 - sub rax, rax
-        #f'\\xb8\\x01\\x00\\x00\\x00\\x48\\x21\\{reg}', # mov rax, 1 - and rax, rax
-        #f'\\xb8\\x01\\x00\\x00\\x00\\x48\\x31\\{reg}' # mov rax, 1 - xor rax, rax
     ]
 
     x = random.randint(0, len(op_liste) - 1)
@@ -48,13 +44,39 @@ def randomxor(reg):
 
     return op
 
-def movxl(reg, num):
 
-    num_hex = hex(num)[2:]  # On exclut les deux premiers caractères (0x)
-    format_num_hex = f'x{num_hex}'  # On ajoute \\x pour chaque caractère hexadécimal
+def movregx(reg_base, reg2):
 
-    num_moins_un_hex = hex(num - 1)[2:]  # Exclusion des deux premiers caractères (0x) et réalisation de -1
-    format_pour_inc = f'x{num_moins_un_hex}'  # Format pour l'incrémentation
+    # Si num est une STRING :
+    if isinstance(reg2, str):
+        format_num_hex = f'x{reg2}'  # On ajoute x devant la chaîne de caractères
+        format_pour_inc = None 
+    else:
+        print(f"Le numéro renseigné pour le registre : {reg2}, n'est pas un STRING")
+        return 1
+    
+    if reg_base == 'rsi':
+
+        liste_choix = [
+            f'\\x48\\x89\\{format_num_hex}', #mov rsi, rsp
+        ]
+        
+        choix = random.choice(liste_choix)  
+        
+    return choix  
+
+def movx(reg, num):
+
+    # Si num est un INT : 
+    if isinstance(num, int):
+        num_hex = hex(num)[2:]  # On exclut les deux premiers caractères (0x)
+        format_num_hex = f'x{num_hex}'  # On ajoute x pour chaque caractère hexadécimal
+
+        num_moins_un_hex = hex(num - 1)[2:]  # Exclusion des deux premiers caractères (0x) et réalisation de -1
+        format_pour_inc = f'x{num_moins_un_hex}'  # Format pour l'incrémentation
+    else:
+        print(f"Le numéro renseigné pour le registre : {reg}, n'est pas un INT")
+        return 1
 
     if reg == 'al':
         op1 = 'xb0' # mov al 
@@ -63,9 +85,15 @@ def movxl(reg, num):
         liste_choix = [
             f'\\{op1}\\{format_num_hex}', # mov al, num
             f'\\x30\\xc0\\{op2}\\{format_num_hex}', # xor al, al - add al , num
-            f'\\xfe\\xc0\\{op2}\\{format_pour_inc}' # inc al - add al , num-1
         ]
         
+        choix = random.choice(liste_choix)
+
+    if reg == 'b':
+        # Cette condition ne concerne que le registre rsp. Le reg = b (movb), est utilisé seulement pour rsp dans le programme.
+        liste_choix = [
+            f'\\xc6\\x04\\x24\{format_num_hex}', # mov BYTE[rsp],0x2
+        ]
         choix = random.choice(liste_choix)
     
     elif reg == 'dil':
@@ -149,3 +177,7 @@ def full_random():
         f"\\x49\\x83\\{reg_c}\\x01\\x4d\\x31\\{reg}", # xor rXX, rXX - add rXX, 01 - 
     ]
 
+    choix = random.choice(op_liste)
+    print("CHOIX = ", choix)
+
+    return choix
