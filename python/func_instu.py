@@ -9,7 +9,6 @@ def aleatoire_xor(reg) :
 
     x = random.randint(0, len(op_liste) - 1)
     op = op_liste[x]
-    print(f'OP rax = {op}')
 
     return op
 
@@ -178,6 +177,5 @@ def full_random():
     ]
 
     choix = random.choice(op_liste)
-    print("CHOIX = ", choix)
 
     return choix
