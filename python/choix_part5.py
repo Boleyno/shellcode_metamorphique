@@ -30,8 +30,4 @@ def partie5():
         case 3 :
             resultat_concat = resultat + full_random() + pushr8 + poprdi + full_random() + movsil + full_random() + syscall
 
-
-    print("partie 5:", resultat_concat)
-    print("")
-
     return resultat_concat

@@ -11,7 +11,6 @@ def partie0():
         'rdi',
         'rsi'
     ]
-
     
     # pour que le shellcode soit fonctionnel il faut commencer par xor rax, rax ou équivalent :
     resultat = [randomxor('rax')]
@@ -21,6 +20,5 @@ def partie0():
     
     # Concatenation
     resultat_concat = ''.join(resultat)
-    print("Partie 0 = ", resultat_concat)
 
     return resultat_concat  

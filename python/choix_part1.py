@@ -24,11 +24,7 @@ def partie1():
         choix = part1[0]
     elif x == 1 :
         choix = part1[1]
-    
-    print(f"OP 1 = {choix}")
-    resultat_concat = moval + movdil + movsil + movdl + syscall + choix
 
-    print(f"Partie 1 = {resultat_concat}")
-    print("")
+    resultat_concat = moval + movdil + movsil + movdl + syscall + choix
 
     return resultat_concat    

