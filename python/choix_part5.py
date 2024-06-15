@@ -20,14 +20,14 @@ def partie5():
 
     resultat_concat = resultat + pushr8 + poprdi + movsil + syscall
     
-    y = random.randint(0, 2)
+    y = random.randint(0, 3)
     
     match y : 
-        case 0 :
+        case 1 :
             resultat_concat = resultat + full_random() + pushr8 + poprdi +  movsil + syscall
-        case 1 : 
+        case 2 : 
             resultat_concat = resultat + full_random() + pushr8 + full_random() + poprdi + movsil + syscall
-        case 2 :
+        case 3 :
             resultat_concat = resultat + full_random() + pushr8 + poprdi + full_random() + movsil + full_random() + syscall
 
 

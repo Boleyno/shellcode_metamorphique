@@ -18,15 +18,15 @@ def partie2(port, ip):
     # Concaténation de toutes les variables
     resultat_concat = subrsp + movb + movw1 + movw2 + movrsi + movdl + pushr8 + poprdi + moval + syscall
 
-    y = random.randint(2,2)
+    y = random.randint(0, 3)
 
     match y : 
-        case 0 :
+        case 1 :
             resultat_concat = subrsp + full_random() + movb + movw1 + movw2 + movrsi + movdl + pushr8 + poprdi + moval + syscall
-        case 1 : 
+        case 2 : 
             print("1")
             resultat_concat = subrsp + full_random()  + movb + movw1 + full_random() + movw2 + movrsi + movdl + pushr8 + poprdi + moval + syscall
-        case 2 :
+        case 3 :
             print("2")
             resultat_concat = subrsp + full_random() + movb + full_random()  + movw1 + movw2 + movrsi + full_random() + movdl + pushr8 + poprdi + moval + syscall
 

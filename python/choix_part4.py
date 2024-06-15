@@ -18,12 +18,14 @@ def partie4():
     movsil = movx('sil',1) # mov sil, 1
     syscall = '\\x0f\\x05' # syscall
 
-    y = random.randint(0, 1)
+    resultat_concat = resultat + pushr8 + poprdi + movsil + syscall
+
+    y = random.randint(0, 2)
     
     match y : 
-        case 0 :
+        case 1 :
             resultat_concat = resultat + full_random() + pushr8 + poprdi + movsil + syscall
-        case 1 : 
+        case 2 : 
             resultat_concat = full_random() + resultat + pushr8 + full_random() + poprdi + movsil + syscall
     
     print("partie 4:", resultat_concat)

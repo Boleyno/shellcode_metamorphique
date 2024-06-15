@@ -20,14 +20,16 @@ def partie3():
     xorrsi = randomxor('rsi') # xor rsi, rsi
     syscall = '\\x0f\\x05' # syscall
 
-    y = random.randint(0, 1)
+
+    resultat_concat = resultat + pushr8 + poprdi + xorrsi + syscall
+
+    y = random.randint(0, 2)
     
     match y : 
-        case 0 :
+        case 1 :
             resultat_concat = full_random() + resultat + pushr8 + poprdi + xorrsi + syscall
-        case 1 : 
+        case 2 : 
             resultat_concat = resultat + full_random() + pushr8 + full_random() + poprdi + xorrsi + syscall
-    
     
 
     print("Partie 3 = ", resultat_concat)

@@ -5,7 +5,6 @@ from func_instu import *
 def partie1():
 
     # PARTIE : SOCKET
-
     
     moval = movx("al",41) # mov al, 41
     movdil = movx("dil",2) # mov dil, 2
@@ -25,12 +24,11 @@ def partie1():
         choix = part1[0]
     elif x == 1 :
         choix = part1[1]
-
     
     print(f"OP 1 = {choix}")
-    resultat = moval + movdil + movsil + movdl + syscall + choix
+    resultat_concat = moval + movdil + movsil + movdl + syscall + choix
 
-    print(f"Partie 1 = {resultat}")
+    print(f"Partie 1 = {resultat_concat}")
     print("")
 
-    return resultat    
+    return resultat_concat    
