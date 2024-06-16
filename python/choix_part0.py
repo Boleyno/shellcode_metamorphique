@@ -4,6 +4,7 @@ from func_instru import *
 def partie0():
 
     # PARTIE : PREPARATION DES REGISTRES
+    ## Exemple de code asm :
     """
     xor rax, rax
 	xor rbx, rbx
