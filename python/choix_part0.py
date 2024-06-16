@@ -3,6 +3,17 @@ from func_instru import *
 
 def partie0():
 
+    # PARTIE : PREPARATION DES REGISTRES
+    """
+    xor rax, rax
+	xor rbx, rbx
+	xor rcx, rcx
+	xor rdx, rdx
+	xor rdi, rdi
+	xor rsi, rsi
+    """
+
+    # Liste des registres qui seront initialsiés à 0 au début du programme
     reg = [
         'rbx',
         'rcx',
@@ -11,7 +22,7 @@ def partie0():
         'rsi'
     ]
     
-    # pour que le shellcode soit fonctionnel il faut commencer par xor rax, rax ou équivalent :
+    # Pour que le shellcode soit fonctionnel il faut commencer par xor rax, rax ou équivalent :
     resultat = [randomxor('rax')]
 
     for index in reg:
